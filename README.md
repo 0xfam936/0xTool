@@ -1,6 +1,6 @@
 # 0xTool
 
-0xTool is a cross platform toolkit developed by me. It's easy to use and contains multiple tools:
+0xTool is a cross-platform toolkit I developed — because why not? It’s simple to use and includes a variety of tools:
 
 - Network scanner
 - Portscanner
@@ -10,7 +10,6 @@
 - MITM attack
 - Webscraper
 - Zip cracker
-- 
 
 ## Requirements 
 - Python 3.6+

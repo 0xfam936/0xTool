@@ -4,7 +4,7 @@
 
 - Network scanner
 - Portscanner
-- MAC changer (Windows only)
+- MAC changer (Linux only)
 - SSH client
 - DOS
 - MITM attack

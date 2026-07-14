@@ -60,3 +60,10 @@ python src/main.py
 ## ⚠️ Disclaimer
 
 > **Strictly for Educational Purposes:** This toolkit is strictly for educational purposes only. Do not use these tools on networks or systems for which you do not have explicit and written permission. The developer assumes no liability for misuse or damage caused by this software.
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+
+

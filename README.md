@@ -1,65 +1,62 @@
-# 0xTool
+# 0xTool - Network & Assessment Toolkit
 
-0xTool is a cross-platform toolkit I developed — because why not? It’s simple to use and includes a variety of tools:
+![0xTool Main Menu](images/main-menu.png)
 
-- Network scanner
-- Portscanner
-- MAC changer (Linux only)
-- SSH client
-- DOS
-- MITM attack
-- Webscraper
-- Zip cracker
+**0xTool** is a cross-platform Python toolkit consolidating essential network reconnaissance and assessment utilities into a single interface. 
 
-## Requirements 
-- Python 3.6+
-- [aiohappyeyeballs](https://pypi.org/project/aiohappyeyeballs/) `== 2.6.1`
-- [aiohttp](https://pypi.org/project/aiohttp/) `== 3.11.18`
-- [aiohttp_socks](https://pypi.org/project/aiohttp-socks/) `== 0.10.1`
-- [aiosignal](https://pypi.org/project/aiosignal/) `== 1.3.2`
-- [attrs](https://pypi.org/project/attrs/) `== 25.3.0`
-- [bcrypt](https://pypi.org/project/bcrypt/) `== 4.3.0`
-- [beautifulsoup4](https://pypi.org/project/beautifulsoup4/) `== 4.13.4`
-- [bs4](https://pypi.org/project/bs4/) `== 0.0.2`
-- [certifi](https://pypi.org/project/certifi/) `== 2025.1.31`
-- [cffi](https://pypi.org/project/cffi/) `== 1.17.1`
-- [charset-normalizer](https://pypi.org/project/charset-normalizer/) `== 3.4.1`
-- [colorama](https://pypi.org/project/colorama/) `== 0.4.6`
-- [cryptography](https://pypi.org/project/cryptography/) `== 44.0.2`
-- [frozenlist](https://pypi.org/project/frozenlist/) `== 1.6.0`
-- [idna](https://pypi.org/project/idna/) `== 3.10`
-- [iniconfig](https://pypi.org/project/iniconfig/) `== 2.1.0`
-- [multidict](https://pypi.org/project/multidict/) `== 6.4.3`
-- [packaging](https://pypi.org/project/packaging/) `== 25.0`
-- [paramiko](https://pypi.org/project/paramiko/) `== 3.5.1`
-- [pluggy](https://pypi.org/project/pluggy/) `== 1.5.0`
-- [propcache](https://pypi.org/project/propcache/) `== 0.3.1`
-- [psutil](https://pypi.org/project/psutil/) `== 7.0.0`
-- [pycparser](https://pypi.org/project/pycparser/) `== 2.22`
-- [pyfiglet](https://pypi.org/project/pyfiglet/) `== 1.0.2`
-- [PyNaCl](https://pypi.org/project/PyNaCl/) `== 1.5.0`
-- [pytest](https://pypi.org/project/pytest/) `== 8.3.5`
-- [python-socks](https://pypi.org/project/python-socks/) `== 2.7.1`
-- [regex](https://pypi.org/project/regex/) `== 2024.11.6`
-- [requests](https://pypi.org/project/requests/) `== 2.32.3`
-- [Scapy](https://scapy.net/) `== 2.6.1`
-- [soupsieve](https://pypi.org/project/soupsieve/) `== 2.7`
-- [stem](https://pypi.org/project/stem/) `== 1.8.2`
-- [torpy](https://pypi.org/project/torpy/) `== 1.1.6`
-- [tqdm](https://pypi.org/project/tqdm/) `== 4.67.1`
-- [typing_extensions](https://pypi.org/project/typing-extensions/) `== 4.13.2`
-- [urllib3](https://pypi.org/project/urllib3/) `== 2.4.0`
-- [yarl](https://pypi.org/project/yarl/) `== 1.20.0`
+## 🚀 Technical Features & Modules
 
+### 🔍 Reconnaissance & Enumeration
+* **Network Scanner:** Performs rapid ARP-based host discovery across local subnets using `scapy`, complete with MAC address resolution and automated hostname lookups.
+  <br>![Network Scanner](images/netscanner.png)
+* **Port Scanner:** A TCP connect scanner utilizing Python `socket` connections with customizable timeout management for optimized scanning speeds.
+* **Asynchronous Web Scraper:** An extremely fast, concurrent web scraper built with `aiohttp` and `asyncio`. It uses connection pooling, rate-limiting (semaphores), and regex to systematically extract emails, phone numbers, and social media footprints from target domains.
 
-## SETUP
-### Activate virtual environment
-#### Install requirements
-```
+### ⚔️ Network Manipulation & Attacks
+* **MITM (Man-in-the-Middle):** Executes ARP cache poisoning to intercept traffic between a target and a gateway. Utilizes multithreading to sniff and decode HTTP requests (extracting methods, paths, and headers) in real-time without blocking the main spoofing loop. Handles OS-level IP forwarding automatically.
+  <br>![MITM Attack](images/mitm.png)
+* **DOS:** Performs Denial of Service stress testing (useful for testing network resilience and rate-limiting rules).
+* **MAC Changer (Linux Only):** Anonymizes hardware MAC addresses to bypass basic network access controls.
+
+### 🛠️ Access & Cryptography Utilities
+* **Zip Cracker:** Features both dictionary/wordlist attacks and dynamic brute-force generation (using `itertools.product` generators for memory efficiency) to recover passwords from encrypted `.zip` archives.
+* **SSH Client:** Establishes secure remote connections for post-exploitation or remote management using `paramiko`.
+
+## ⚙️ Prerequisites & Dependencies
+
+* **Python 3.6+** (Tested on Python 3.13+)
+* Requires administrative/root privileges for raw socket manipulation (ARP spoofing, network scanning).
+
+Core libraries utilized include:
+`Scapy` (Packet crafting), `aiohttp` & `asyncio` (Async networking), `beautifulsoup4` (HTML parsing), and `colorama` (Terminal UI).
+
+## 💻 Installation & Setup
+
+It is highly recommended to run this tool within an isolated Python virtual environment.
+
+```bash
+# Clone the repository
+git clone [https://github.com/yourusername/0xTool.git](https://github.com/yourusername/0xTool.git)
+cd 0xTool
+
+# Create and activate the virtual environment
+python3 -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+
+# Install the required dependencies
 pip install -r requirements.txt
-````
-
-## To use
 ```
+
+## 🎯 Usage
+
+Ensure your virtual environment is active and you have the necessary privileges (run as root/administrator if utilizing `scapy` modules like MITM or Netscan).
+
+Launch the toolkit via the main script:
+
+```bash
 python src/main.py
 ```
+
+## ⚠️ Disclaimer
+
+> **Strictly for Educational Purposes:** This toolkit is strictly educational. Do not use these tools on networks or systems for which you do not have explicit and written permission. The developer assumes no liability for misuse or damage caused by this software.
